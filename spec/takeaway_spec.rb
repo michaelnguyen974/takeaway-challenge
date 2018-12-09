@@ -7,20 +7,22 @@ let :list_of_dishes do
   end 
 
   context '#order' do 
-    it { is_expected.to respond_to(:order).with(2).argument }
+    it { is_expected.to respond_to(:order_item).with(2).argument }
 
     it "raises an error if food item doesn't exit" do 
-      expect{takeaway.order("Salmon")}.to raise_error "Item not on menu"
+      expect{takeaway.order_item("Salmon")}.to raise_error "Item not on menu"
     end 
-    
+
     it 'orders food items from menu' do 
-      expect(takeaway.order("Burger")).to eq ["Burger"]
+      variable = "Burger"
+      expect(takeaway.order_item(variable)).to eq (takeaway.ordered_food)
     end 
 
     it 'to check my ordered food' do 
       expect(takeaway.check_order).to eq takeaway.ordered_food
     end 
 
+    
   
   end 
 
