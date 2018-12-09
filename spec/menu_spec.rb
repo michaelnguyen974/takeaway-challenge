@@ -4,12 +4,11 @@ RSpec.describe Menu do
 subject(:menu) { described_class.new }
 
   let :list_of_dishes do 
-  [
-    { name: 'Burger', price: 10 },
-    { name: 'Pizza', price: 14 },
-    { name: 'Salad', price: 7 },
-    { name: 'fries', price: 2.90 }
-  ]
+    { :'Burger' => 10, 
+      :'Pizza' => 14, 
+      :'Salad' => 7, 
+      :'fries' => 2 
+    }
   end 
 
   context '#dishes' do 
@@ -19,5 +18,10 @@ subject(:menu) { described_class.new }
       menu = Menu.new
       expect(menu.list_of_dishes).to eq(list_of_dishes)
     end 
+
+    # it 'prints the dishes' do 
+    #   expect(menu.print_dishes).to eq(list_of_dishes)
+    # end 
+
   end 
 end 
